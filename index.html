@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lidemy</title>
+    <link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body>
+    <header class="header" id="homepage">
+        <nav class="nav">
+            <button class="btn" id="btnOpen">
+                <svg width="23" height="23" viewBox="0 0 23 23">
+                    <path stroke-width="3" stroke="#324b4a" stroke-linecap="round" d="M 2 2.5 L 20 2.5"></path>
+                    <path stroke-width="3" stroke="#324b4a" stroke-linecap="round" d="M 2 9.423 L 20 9.423" opacity="1">
+                    </path>
+                    <path stroke-width="3" stroke="#324b4a" stroke-linecap="round" d="M 2 16.346 L 20 16.346"></path>
+                </svg>
+            </button>
+            <button class="btn" id="btnClose">
+                <svg width="23" height="23" viewBox="0 0 23 23">
+                    <path stroke-width="3" stroke="#324b4a" stroke-linecap="round" d="M 3 16.5 L 17 2.5"></path>
+                    <path stroke-width="3" stroke="#324b4a" stroke-linecap="round" d="M 2 9.423 L 20 9.423" opacity="0">
+                    </path>
+                    <path stroke-width="3" stroke="#324b4a" stroke-linecap="round" d="M 3 2.5 L 17 16.346"></path>
+                </svg>
+            </button>
+            <ul class="nav__list">
+                <li class="nav__item"><a href="#homepage" class="nav__link">Homepage</a></li>
+                <li class="nav__item"><a href="#whatwedo" class="nav__link">What We Do</a></li>
+                <li class="nav__item"><a href="#whatwedid" class="nav__link">What We Did</a></li>
+                <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="contain">
+        <section class="hero">
+            <ul class="wrap">
+                <li class="wrap__item">
+                    <p class="pre-title">Lideny Group</p>
+                    <h1 class="title">Marketing <br> Courses</h1>
+                    <div class="btn__group">
+                        <a href="#whatidid" class="btn--outline">See the Last Work</a>
+                        <a href="#contact" class="btn--fill">Contact Me</a>
+                    </div>
+                    <img class="btn--down" loading="lazy" src="img/scroll.webp" width="50" height="50"
+                        alt="scroll down">
+                </li>
+                <li class="wrap__item">
+                    <img loading="lazy" src="img/img_1.webp" width="450" height="746" alt="Co-founder Lidemy"
+                        class="wrap__img">
+                </li>
+            </ul>
+            <span class="stroke">Lidemy Lidemy Lidemy</span>
+        </section>
+        <section class="about" id="whatwedo">
+            <h2 class="title title--center">What We Do?</h2>
+            <img loading="lazy" src="img/arrow-down.svg" width="100" height="100" alt="scroll down" class="about__down"
+                id="scrollDown">
+            <div class="about__img">
+                <img class="about__img--stars" loading="lazy" width="1280" height="768" src="img/img_3c.webp"
+                    alt="stars background">
+                <img class="about__img--planets" loading="lazy" width="1280" height="768" src="img/img_3b.webp"
+                    alt="planets background">
+                <img class="about__img--mountain" loading="lazy" width="1280" height="768" src="img/img_3a.webp"
+                    alt="mountain background">
+            </div>
+        </section>
+    </main>
+    <footer class="footer"></footer>
+    <div id="circle"></div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const btnOpen = document.getElementById("btnOpen");
+            const btnClose = document.getElementById("btnClose");
+            const nav = document.querySelector(".nav");
+
+            btnOpen.addEventListener("click", function () {
+                nav.style.clipPath = "circle(3000px at 50px 50px)";
+                btnOpen.style.display = "none";
+                btnClose.style.display = "block";
+            });
+
+            btnClose.addEventListener("click", function () {
+                nav.style.clipPath = "circle(30px at 50px 50px)";
+                btnOpen.style.display = "block";
+                btnClose.style.display = "none";
+            });
+
+            var circle = document.getElementById('circle');
+            document.addEventListener("mousemove", function (event) {
+                var x = event.clientX - circle.offsetWidth / 30 + "px";
+                var y = event.clientY - circle.offsetHeight / 30 + "px";
+                circle.style.left = x;
+                circle.style.top = y;
+            });
+
+            document.querySelectorAll('.nav__link').forEach(link => {
+                link.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop,
+                            behavior: 'smooth'
+                        });
+                        history.pushState(null, null, ' ');
+                    }
+                });
+            });
+
+            window.addEventListener('scroll', function () {
+                if (history.state) {
+                    history.replaceState(null, null, ' ');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
