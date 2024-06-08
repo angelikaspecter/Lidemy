@@ -37,7 +37,7 @@
         </nav>
     </header>
     <main class="contain">
-        <section class="hero">
+        <section class="section hero">
             <ul class="wrap">
                 <li class="wrap__item">
                     <p class="pre-title">Lideny Group</p>
@@ -56,7 +56,7 @@
             </ul>
             <span class="stroke">Lidemy Lidemy Lidemy</span>
         </section>
-        <section class="about" id="whatwedo">
+        <section class="section about" id="whatwedo">
             <h2 class="title title--center">What We Do?</h2>
             <img loading="lazy" src="img/arrow-down.svg" width="100" height="100" alt="scroll down" class="about__down"
                 id="scrollDown">
@@ -68,6 +68,9 @@
                 <img class="about__img--mountain" loading="lazy" width="1280" height="768" src="img/img_3a.webp"
                     alt="mountain background">
             </div>
+        </section>
+        <section class="section idea">
+
         </section>
     </main>
     <footer class="footer"></footer>
@@ -118,6 +121,22 @@
                 if (history.state) {
                     history.replaceState(null, null, ' ');
                 }
+            });
+        });
+
+        document.addEventListener('wheel', function (event) {
+            const sections = document.querySelectorAll('.section');
+            const scrollDirection = event.deltaY > 0 ? 1 : -1;
+            const currentScroll = window.scrollY;
+            const currentSectionIndex = Math.round(currentScroll / window.innerHeight);
+            let newSectionIndex = currentSectionIndex + scrollDirection;
+
+            if (newSectionIndex < 0) newSectionIndex = 0;
+            if (newSectionIndex >= sections.length) newSectionIndex = sections.length - 1;
+
+            window.scrollTo({
+                top: newSectionIndex * window.innerHeight,
+                behavior: 'smooth'
             });
         });
     </script>
