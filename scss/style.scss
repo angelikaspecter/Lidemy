@@ -102,6 +102,13 @@ section {
         position: relative;
         animation: moveUpDown 2s infinite, blink 3s infinite;
     }
+    &--big {
+        font-size: 36px;
+        border-radius: 50px;
+        @media screen and (max-width: 1223.98px) {
+            display: none;
+        }
+    }
 }
 
 @keyframes moveUpDown {
@@ -235,6 +242,37 @@ section {
             white-space: wrap;
         }
     }
+    &--color {
+        display: flex;
+        white-space: nowrap;
+        align-items: center;
+        gap: 20px;
+        & .hover {
+            font-weight: 900;
+            &:hover {
+                color: var(--accedent-primary);
+            }
+        }
+        & .clean {
+            font-weight: 300;
+            &:hover {
+                color: var(--light-primary);
+            }
+        }
+    }
+    &--section {
+        min-height: 60px;
+        font-size: 24px;
+        font-weight: 700;
+        color: var(--light-primary);
+    }
+}
+
+.desc {
+    &--section {
+        color: var(--light-primary);
+        font-weight: 200;
+    }
 }
 
 .about {
@@ -301,5 +339,74 @@ section {
     }
     100% {
         transform: translateY(0);
+    }
+}
+
+.courses {
+    overflow: hidden;
+    position: relative;
+    padding: 10vh 15vw 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    &__header {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        position: relative;
+        margin-bottom: 20px;
+    }
+    &__quote {
+        color: var(--light-primary);
+        text-align: right;
+        margin-right: 10vw;
+        font-weight: 300;
+    }
+    & hr {
+        position: absolute;
+        top: 20px;
+        right: -21%;
+        width: 35%;
+    }
+    &__title {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+    &__img {
+        width: 250px;
+        height: 100px;
+        border-radius: 50px;
+        object-fit: cover;
+        @media screen and (max-width: 1223.98px) {
+            display: none;
+        }
+    }
+    &__list {
+        width: 100%;
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 80px;
+    }
+    &__item {
+        width: 100%;
+        flex: 1 1 calc(100% / 3);
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        border: 1px solid var(--accedent-primary);
+        padding: 35px 25px;
+        &:hover {
+            background-color: var(--light-primary);
+            & h3,
+            & p {
+                color: var(--dark-primary);
+            }
+            & p {
+                font-weight: 400;
+            }
+        }
     }
 }
