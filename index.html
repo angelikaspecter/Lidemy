@@ -113,8 +113,112 @@
                     alt="mountain background">
             </div>
         </section>
+        <section class="section portfolio">
+            <div class="portfolio__progress">
+                <h2 class="title title--gradient">Featured Courses</h2>
+                <div class="progressBar"></div>
+            </div>
+            <div class="portfolio__wrap">
+                <ul class="wrap wrap--portfolio">
+                    <li class="wrap__item wrap__item--portfolio">
+                        <img loading="lazy" src="img/img_4.webp" width="750" height="400" alt="SMM"
+                        class="wrap__img wrap__img--portfolio">
+                    </li>
+                    <li class="wrap__item wrap__item--portfolio">
+                        <h2 class="title">SMM</h2>
+                        <ul class="portfolio__course">
+                            <li><p class="desc desc--section">Technologies:</p></li>
+                            <li><p class="desc desc--section">Content Creation</p></li>
+                            <li><p class="desc desc--section">Competitor Analysis</p></li>
+                            <li><p class="desc desc--section">Attracting New Subscribers</p></li>
+                            <li><p class="desc desc--section">Participation in Discussions</p></li>
+                        </ul>
+                        <a href="#contact" class="btn--fill">See Demo</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="portfolio__wrap">
+                <ul class="wrap wrap--portfolio">
+                    <li class="wrap__item wrap__item--portfolio">
+                        <img loading="lazy" src="img/img_5.webp" width="750" height="400" alt="Targeted Advertising"
+                        class="wrap__img wrap__img--portfolio">
+                    </li>
+                    <li class="wrap__item wrap__item--portfolio">
+                        <h2 class="title">Targeted <br> Advertising</h2>
+                        <ul class="portfolio__course">
+                            <li><p class="desc desc--section">Technologies:</p></li>
+                            <li><p class="desc desc--section">Helping You Find Your Audience</p></li>
+                            <li><p class="desc desc--section">Making Your Advertising More Attractive</p></li>
+                            <li><p class="desc desc--section">Help You Find Customer Interest</p></li>
+                            <li><p class="desc desc--section">Test Ads Before Selling Them For You!</p></li>
+                        </ul>
+                        <a href="#contact" class="btn--fill">See Demo</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="portfolio__wrap">
+                <ul class="wrap wrap--portfolio">
+                    <li class="wrap__item wrap__item--portfolio">
+                        <img loading="lazy" src="img/img_6.webp" width="750" height="400" alt="Traffic Arbitrage"
+                        class="wrap__img wrap__img--portfolio">
+                    </li>
+                    <li class="wrap__item wrap__item--portfolio">
+                        <h2 class="title">Traffic <br> Arbitrage</h2>
+                        <ul class="portfolio__course">
+                            <li><p class="desc desc--section">Technologies:</p></li>
+                            <li><p class="desc desc--section">Help You Learn Traffic Arbitrage</p></li>
+                            <li><p class="desc desc--section">We'll Build Our Client Base For You</p></li>
+                            <li><p class="desc desc--section">Help You Find The Lowest Price On The Market</p></li>
+                        </ul>
+                        <a href="#contact" class="btn--fill">See Demo</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="portfolio__wrap">
+                <ul class="wrap wrap--portfolio">
+                    <li class="wrap__item wrap__item--portfolio">
+                        <img loading="lazy" src="img/img_7.webp" width="750" height="400" alt="Trading Courses"
+                        class="wrap__img wrap__img--portfolio">
+                    </li>
+                    <li class="wrap__item wrap__item--portfolio">
+                        <h2 class="title">Trading <br> Courses</h2>
+                        <ul class="portfolio__course">
+                            <li><p class="desc desc--section">Technologies:</p></li>
+                            <li><p class="desc desc--section">Teach How To Make The Right First Trades</p></li>
+                            <li><p class="desc desc--section">Teach How Not To Make a Loss</p></li>
+                            <li><p class="desc desc--section">Help You Learn How To Earn From Your First Trades</p></li>
+                            <li><p class="desc desc--section">Teach How To Make Money On Dips</p></li>
+                        </ul>
+                        <a href="#contact" class="btn--fill">See Demo</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="portfolio__wrap">
+                <ul class="wrap wrap--portfolio">
+                    <li class="wrap__item wrap__item--portfolio">
+                        <img loading="lazy" src="img/img_8.webp" width="750" height="400" alt="Trading"
+                        class="wrap__img wrap__img--portfolio">
+                    </li>
+                    <li class="wrap__item wrap__item--portfolio">
+                        <h2 class="title">Trading</h2>
+                        <ul class="portfolio__course">
+                            <li><p class="desc desc--section">Technologies:</p></li>
+                            <li><p class="desc desc--section">Analyzing The Stock Market Instead Of You</p></li>
+                            <li><p class="desc desc--section">Help You Make Successful Stock Purchases</p></li>
+                            <li><p class="desc desc--section">Ready To Lend Our Analytical Background To Help With Trades</p></li>
+                            <li><p class="desc desc--section">Ready To Train Your People To Do It</p></li>
+                        </ul>
+                        <a href="#contact" class="btn--fill">See Demo</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
     </main>
-    <footer class="footer"></footer>
+    <footer class="footer">
+        <section class="section contacts" id="contacts">
+            
+        </section>
+    </footer>
     <div id="circle"></div>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -165,21 +269,21 @@
             });
         });
 
-        document.addEventListener('wheel', function (event) {
-            const sections = document.querySelectorAll('.section');
-            const scrollDirection = event.deltaY > 0 ? 1 : -1;
-            const currentScroll = window.scrollY;
-            const currentSectionIndex = Math.round(currentScroll / window.innerHeight);
-            let newSectionIndex = currentSectionIndex + scrollDirection;
+        // document.addEventListener('wheel', function (event) {
+        //     const sections = document.querySelectorAll('.section');
+        //     const scrollDirection = event.deltaY > 0 ? 1 : -1;
+        //     const currentScroll = window.scrollY;
+        //     const currentSectionIndex = Math.round(currentScroll / window.innerHeight);
+        //     let newSectionIndex = currentSectionIndex + scrollDirection;
 
-            if (newSectionIndex < 0) newSectionIndex = 0;
-            if (newSectionIndex >= sections.length) newSectionIndex = sections.length - 1;
+        //     if (newSectionIndex < 0) newSectionIndex = 0;
+        //     if (newSectionIndex >= sections.length) newSectionIndex = sections.length - 1;
 
-            window.scrollTo({
-                top: newSectionIndex * window.innerHeight,
-                behavior: 'smooth'
-            });
-        });
+        //     window.scrollTo({
+        //         top: newSectionIndex * window.innerHeight,
+        //         behavior: 'smooth'
+        //     });
+        // });
     </script>
 </body>
 
