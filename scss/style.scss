@@ -39,6 +39,7 @@ section {
     height: 100vh;
     &.portfolio {
         height: auto;
+        position: relative;
     }
 }
 
@@ -220,6 +221,9 @@ section {
         &--portfolio {
             flex: 0 0 calc(50% - 80px);
         }
+        &--form {
+            align-items: center;
+        }
     }
     &__img {
         width: 100%;
@@ -240,6 +244,14 @@ section {
     &--portfolio {
         align-items: center;
         gap: 80px;
+    }
+    &--form {
+        gap: 80px;
+    }
+    &--info {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
     }
 }
 
@@ -296,12 +308,31 @@ section {
         -moz-text-fill-color: transparent;
         background-clip: text;
     }
+    &--form {
+        text-align: center;
+        line-height: 1;
+    }
+    & .color {
+        color: var(--accedent-primary);
+    }
 }
 
 .desc {
     &--section {
         color: var(--light-primary);
         font-weight: 200;
+    }
+    &--form {
+        color: var(--light-primary);
+        font-size: 24px;
+        font-weight: 900;
+        text-align: center;
+    }
+    &--info {
+        color: var(--light-primary);
+        font-size: 16px;
+        text-decoration: none;
+        text-align: center;
     }
 }
 
@@ -477,9 +508,16 @@ section {
 }
 
 .progressBar {
+    width: 100%;
     height: 10px;
     background: rgb(235, 237, 237);
     background: radial-gradient(circle, rgb(235, 237, 237) 0%, rgb(50, 75, 74) 68%);
+    transition: width 0.3s, transform 0.3s;
+    position: absolute; /* Абсолютное позиционирование внутри блока .portfolio__progress */
+    left: 0; /* Начальное положение по горизонтали */
+    right: 0;
+    top: 170px; /* Начальное положение по вертикали */
+    margin: 0 auto;
 }
 
 .portfolio {
@@ -496,14 +534,20 @@ section {
     }
     &__progress {
         width: 100%;
-        z-index: 3;
-        position: sticky;
-        top: 0;
-        left: 0;
         padding: 50px;
         text-align: center;
         color: var(--light-primary);
+        background-color: var(--dark-primary);
         font-size: 36px;
+        transition: top 0.3s;
+        position: relative;
+        z-index: 1000;
+        &.fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
     }
     &__wrap {
         display: flex;
@@ -528,5 +572,60 @@ section {
                 margin-left: -25px;
             }
         }
+    }
+}
+
+.contacts {
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+    padding: 10vh 15vw;
+}
+
+.form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    &__input {
+        width: 100%;
+        padding: 20px;
+        background-color: transparent;
+        border: 1px solid var(--accedent-primary);
+        border-radius: 5px;
+        color: var(--light-primary);
+        font-size: 18px;
+        &::placeholder {
+            color: var(--light-primary);
+        }
+        &:active,
+        &:focus {
+            border: 1px solid var(--light-primary);
+        }
+    }
+    &__btn {
+        width: 100%;
+        min-width: 100%;
+        font-size: 18px;
+        &:hover {
+            transform: translateX(0) scale(1) translateY(0);
+            transition: all 0.3s ease-in-out;
+        }
+    }
+}
+
+.pulse {
+    animation: pulsate 2s infinite;
+}
+
+@keyframes pulsate {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
     }
 }

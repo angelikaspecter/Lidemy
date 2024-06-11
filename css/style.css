@@ -1,3 +1,4 @@
+@charset "UTF-8";
 :root {
   --font-primary: "DM Sans", "Roboto", sans-serif;
   --light-primary: #ebeced;
@@ -170,6 +171,7 @@ section {
 }
 section.portfolio {
   height: auto;
+  position: relative;
 }
 
 .btn {
@@ -388,6 +390,9 @@ section.portfolio {
 .wrap__item--portfolio {
   flex: 0 0 calc(50% - 80px);
 }
+.wrap__item--form {
+  align-items: center;
+}
 .wrap__img {
   width: 100%;
   height: 100%;
@@ -412,6 +417,14 @@ section.portfolio {
 .wrap--portfolio {
   align-items: center;
   gap: 80px;
+}
+.wrap--form {
+  gap: 80px;
+}
+.wrap--info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .pre-title {
@@ -470,10 +483,29 @@ section.portfolio {
   -moz-text-fill-color: transparent;
   background-clip: text;
 }
+.title--form {
+  text-align: center;
+  line-height: 1;
+}
+.title .color {
+  color: var(--accedent-primary);
+}
 
 .desc--section {
   color: var(--light-primary);
   font-weight: 200;
+}
+.desc--form {
+  color: var(--light-primary);
+  font-size: 24px;
+  font-weight: 900;
+  text-align: center;
+}
+.desc--info {
+  color: var(--light-primary);
+  font-size: 16px;
+  text-decoration: none;
+  text-align: center;
 }
 
 .about {
@@ -666,9 +698,16 @@ section.portfolio {
 }
 
 .progressBar {
+  width: 100%;
   height: 10px;
   background: rgb(235, 237, 237);
   background: radial-gradient(circle, rgb(235, 237, 237) 0%, rgb(50, 75, 74) 68%);
+  transition: width 0.3s, transform 0.3s;
+  position: absolute; /* Абсолютное позиционирование внутри блока .portfolio__progress */
+  left: 0; /* Начальное положение по горизонтали */
+  right: 0;
+  top: 170px; /* Начальное положение по вертикали */
+  margin: 0 auto;
 }
 
 .portfolio {
@@ -686,15 +725,20 @@ section.portfolio {
 }
 .portfolio__progress {
   width: 100%;
-  z-index: 3;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  left: 0;
   padding: 50px;
   text-align: center;
   color: var(--light-primary);
+  background-color: var(--dark-primary);
   font-size: 36px;
+  transition: top 0.3s;
+  position: relative;
+  z-index: 1000;
+}
+.portfolio__progress.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 .portfolio__wrap {
   display: flex;
@@ -719,4 +763,77 @@ section.portfolio {
 .portfolio__course li:first-child {
   list-style: none;
   margin-left: -25px;
+}
+
+.contacts {
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+  padding: 10vh 15vw;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.form__input {
+  width: 100%;
+  padding: 20px;
+  background-color: transparent;
+  border: 1px solid var(--accedent-primary);
+  border-radius: 5px;
+  color: var(--light-primary);
+  font-size: 18px;
+}
+.form__input::-moz-placeholder {
+  color: var(--light-primary);
+}
+.form__input:-ms-input-placeholder {
+  color: var(--light-primary);
+}
+.form__input::placeholder {
+  color: var(--light-primary);
+}
+.form__input:active, .form__input:focus {
+  border: 1px solid var(--light-primary);
+}
+.form__btn {
+  width: 100%;
+  min-width: 100%;
+  font-size: 18px;
+}
+.form__btn:hover {
+  transform: translateX(0) scale(1) translateY(0);
+  transition: all 0.3s ease-in-out;
+}
+
+.pulse {
+  -webkit-animation: pulsate 2s infinite;
+          animation: pulsate 2s infinite;
+}
+
+@-webkit-keyframes pulsate {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
