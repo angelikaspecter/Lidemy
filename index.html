@@ -71,8 +71,7 @@
         </section>
         <section class="section courses">
             <header class="courses__header">
-                <p class="courses__quote">I focus on helping your brand grow <br>
-                    and move forward</p>
+                <p class="courses__quote">I focus on helping your brand grow and move forward</p>
                 <hr>
             </header>
             <div class="courses__title">
@@ -131,7 +130,7 @@
                             class="wrap__img wrap__img--portfolio">
                     </li>
                     <li class="wrap__item wrap__item--portfolio">
-                        <h2 class="title">SMM</h2>
+                        <h2 class="title title--portfolio">SMM</h2>
                         <ul class="portfolio__course">
                             <li>
                                 <p class="desc desc--section">Technologies:</p>
@@ -160,7 +159,7 @@
                             class="wrap__img wrap__img--portfolio">
                     </li>
                     <li class="wrap__item wrap__item--portfolio">
-                        <h2 class="title">Targeted <br> Advertising</h2>
+                        <h2 class="title title--portfolio">Targeted Advertising</h2>
                         <ul class="portfolio__course">
                             <li>
                                 <p class="desc desc--section">Technologies:</p>
@@ -189,7 +188,7 @@
                             class="wrap__img wrap__img--portfolio">
                     </li>
                     <li class="wrap__item wrap__item--portfolio">
-                        <h2 class="title">Traffic <br> Arbitrage</h2>
+                        <h2 class="title title--portfolio">Traffic Arbitrage</h2>
                         <ul class="portfolio__course">
                             <li>
                                 <p class="desc desc--section">Technologies:</p>
@@ -215,7 +214,7 @@
                             class="wrap__img wrap__img--portfolio">
                     </li>
                     <li class="wrap__item wrap__item--portfolio">
-                        <h2 class="title">Trading <br> Courses</h2>
+                        <h2 class="title title--portfolio">Trading Courses</h2>
                         <ul class="portfolio__course">
                             <li>
                                 <p class="desc desc--section">Technologies:</p>
@@ -244,7 +243,7 @@
                             class="wrap__img wrap__img--portfolio">
                     </li>
                     <li class="wrap__item wrap__item--portfolio">
-                        <h2 class="title">Trading</h2>
+                        <h2 class="title title--portfolio">Trading</h2>
                         <ul class="portfolio__course">
                             <li>
                                 <p class="desc desc--section">Technologies:</p>
@@ -284,7 +283,7 @@
                         <a class="desc desc--info" href="tel:+380937599467">+380 93 759 94 67</a>
                     </div>
                 </li>
-                <li class="wrap__item">
+                <li class="wrap__item wrap__item--form">
                     <form action="" class="form">
                         <input class="form__input" type="text" name="name" id="name" placeholder="Name" required
                             autocomplete>
@@ -353,8 +352,10 @@
             var initialProgressBarWidth = 100;
             var minProgressBarWidth = 10;
 
-            var scrollStart = 3400;
-            var scrollEnd = 7000;
+            var scrollStart = 3500;
+            var scrollEnd = 6500;
+            var mobileScrollStart = 3800;
+            var mobileScrollEnd = 8300;
             var scrollRange = scrollEnd - scrollStart;
 
             window.addEventListener('scroll', function () {
@@ -373,6 +374,12 @@
                     portfolioProgress.classList.remove('fixed');
                 }
             });
+
+            if (window.innerWidth <= 1248) {
+                scrollStart = mobileScrollStart;
+                scrollEnd = mobileScrollEnd;
+                scrollRange = scrollEnd - scrollStart;
+            }
         });
     </script>
 </body>
