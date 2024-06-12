@@ -243,6 +243,17 @@ section {
                 text-align: center;
             }
         }
+        &--hero {
+            opacity: 0;
+            position: relative;
+            z-index: 999;
+        }
+        &--left {
+            animation: slideInFromLeft 1s forwards;
+        }
+        &--right {
+            animation: slideInFromRight 1s forwards;
+        }
         &--portfolio {
             flex: 0 0 calc(50% - 80px);
             @media screen and (max-width: 1223.98px) {
@@ -312,6 +323,28 @@ section {
     }
 }
 
+@keyframes slideInFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 .pre-title {
     font-size: calc(1em + 1.5vw);
     color: var(--accedent-primary);
@@ -350,7 +383,7 @@ section {
     }
     &--section {
         min-height: 60px;
-        font-size: calc(1em + .5vw);
+        font-size: calc(1em + 0.5vw);
         font-weight: 700;
         color: var(--light-primary);
     }
