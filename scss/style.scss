@@ -313,6 +313,14 @@ section {
             }
         }
     }
+    &__info {
+        &.slide-up {
+            animation: slideUp .5s ease-in-out;
+            animation-fill-mode: both;
+            animation-delay: 1s;
+            opacity: 0;
+        }
+    }
     &--portfolio {
         align-items: center;
         gap: 80px;
@@ -332,6 +340,17 @@ section {
         display: flex;
         flex-direction: column;
         gap: 20px;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
     }
 }
 
@@ -415,6 +434,11 @@ section {
         font-size: calc(1em + 3vw);
         text-align: center;
         line-height: 1;
+        &.slide-up {
+            animation: slideUp 1s ease-in-out;
+            animation-fill-mode: both;
+            opacity: 0;
+        }
     }
     &--portfolio {
         font-size: calc(1em + 2vw);
@@ -727,7 +751,7 @@ section {
 
 .form {
     width: 100%;
-    display: flex;
+    display: none;
     flex-direction: column;
     gap: 20px;
     &__input {
@@ -771,4 +795,63 @@ section {
     100% {
         transform: scale(1);
     }
+}
+
+.phoneSvg {
+    &.slide-up {
+        animation: slideUp 2s ease-in-out;
+        animation-fill-mode: both;
+        opacity: 0;
+    }
+    & svg {
+        @media screen and (max-width: 545.98px) {
+            width: 320px;
+            height: 320px;
+        }
+    }
+}
+
+@keyframes animate-svg-stroke-1 {
+    0% {
+        stroke-dashoffset: 4204.5869140625px;
+        stroke-dasharray: 4204.5869140625px;
+    }
+
+    100% {
+        stroke-dashoffset: 0;
+        stroke-dasharray: 4204.5869140625px;
+    }
+}
+
+.svg-elem-1 {
+    animation: animate-svg-stroke-1 1s cubic-bezier(0.47, 0, 0.745, 0.715) 0s both,
+        animate-svg-fill-1 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.8s both;
+        animation-delay: 1s;
+}
+
+@keyframes animate-svg-stroke-2 {
+    0% {
+        stroke-dashoffset: 1802px;
+        stroke-dasharray: 1802px;
+    }
+
+    100% {
+        stroke-dashoffset: 0;
+        stroke-dasharray: 1802px;
+    }
+}
+
+@keyframes animate-svg-fill-2 {
+    0% {
+        fill: transparent;
+    }
+
+    100% {
+        fill: rgb(255, 255, 255);
+    }
+}
+
+.svg-elem-2 {
+    animation: animate-svg-stroke-2 1s cubic-bezier(0.47, 0, 0.745, 0.715) 0.12s both,
+        animate-svg-fill-2 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.9s both;
 }
