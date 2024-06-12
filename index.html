@@ -50,8 +50,8 @@
                         alt="scroll down">
                 </li>
                 <li class="wrap__item wrap__item--hero wrap__item--right">
-                    <img loading="lazy" src="img/img_1.webp" width="450" height="746" alt="Yaroslav Lidenuk CEO Director"
-                        class="wrap__img">
+                    <img loading="lazy" src="img/img_1.webp" width="450" height="746"
+                        alt="Yaroslav Lidenuk CEO Director" class="wrap__img">
                 </li>
             </ul>
             <span class="stroke">Lidemy Lidemy Lidemy</span>
@@ -393,6 +393,12 @@
                         entry.target.querySelectorAll('.courses__header').forEach((item, index) => {
                             item.classList.add('slide-in');
                         });
+                        entry.target.querySelectorAll('.wrap__item--left').forEach((item, index) => {
+                            item.classList.add('active');
+                        });
+                        entry.target.querySelectorAll('.wrap__item--right').forEach((item, index) => {
+                            item.classList.add('active');
+                        });
                     } else {
                         entry.target.querySelectorAll('.courses__list').forEach(item => {
                             item.classList.remove('slide-in');
@@ -403,12 +409,20 @@
                         entry.target.querySelectorAll('.courses__header').forEach(item => {
                             item.classList.remove('slide-in');
                         });
+                        entry.target.querySelectorAll('.wrap__item--left').forEach(item => {
+                            item.classList.remove('active');
+                        });
+                        entry.target.querySelectorAll('.wrap__item--right').forEach(item => {
+                            item.classList.remove('active');
+                        });
                     }
                 });
             }, { threshold: 0.1 });
 
             const section = document.querySelector('.section.courses');
+            const sectionScnd = document.querySelector('.section.hero');
             observer.observe(section);
+            observer.observe(sectionScnd);
         });
     </script>
 </body>

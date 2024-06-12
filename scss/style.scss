@@ -249,10 +249,14 @@ section {
             z-index: 999;
         }
         &--left {
-            animation: slideInFromLeft 1s forwards;
+            &.active {
+                animation: slideInFromLeft 1s forwards;
+            }
         }
         &--right {
-            animation: slideInFromRight 1s forwards;
+            &.active {
+                animation: slideInFromRight 1s forwards;
+            }
         }
         &--portfolio {
             flex: 0 0 calc(50% - 80px);

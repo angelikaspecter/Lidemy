@@ -424,11 +424,11 @@ section.portfolio {
   position: relative;
   z-index: 999;
 }
-.wrap__item--left {
+.wrap__item--left.active {
   -webkit-animation: slideInFromLeft 1s forwards;
           animation: slideInFromLeft 1s forwards;
 }
-.wrap__item--right {
+.wrap__item--right.active {
   -webkit-animation: slideInFromRight 1s forwards;
           animation: slideInFromRight 1s forwards;
 }
