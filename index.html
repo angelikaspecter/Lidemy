@@ -493,9 +493,13 @@
                         if (isMobile) {
                             isAnimationPlayedOnce = true; // Устанавливаем флаг, если анимация уже была проиграна на мобильных устройствах
                         }
+                    } else if (isMobile && isAnimationPlayedOnce) {
+                        // Если это мобильное устройство и анимация уже была проиграна, показываем форму постоянно
+                        form.style.display = 'flex';
+                        phoneSvg.style.display = 'none';
                     }
                 } else {
-                    if (isFormVisible) {
+                    if (isFormVisible && (!isMobile || !isAnimationPlayedOnce)) {
                         hideForm(); // Скрываем форму, если блок формы не видим
                     }
                 }
@@ -520,7 +524,6 @@
 
             // Проверяем видимость формы при загрузке страницы
             checkFormVisibility();
-
         });
     </script>
 </body>
