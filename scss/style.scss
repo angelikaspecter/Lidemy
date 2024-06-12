@@ -247,6 +247,13 @@ section {
             opacity: 0;
             position: relative;
             z-index: 999;
+            & .desc {
+position: absolute;
+right: 70px;
+bottom: 50px;
+z-index: 555;
+text-align: left;
+            }
         }
         &--left {
             &.active {
