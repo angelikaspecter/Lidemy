@@ -460,6 +460,7 @@
             const form = document.querySelector('.form');
             const phoneSvg = document.querySelector('.phoneSvg');
             let isFormVisible = false; // Переменная для отслеживания видимости формы
+            let isAnimationPlayedOnce = false; // Переменная для отслеживания первого запуска анимации на мобильных устройствах
 
             // Скрываем форму
             form.style.display = 'none';
@@ -482,10 +483,16 @@
                 const formRect = form.getBoundingClientRect();
                 const windowHeight = window.innerHeight || document.documentElement.clientHeight;
 
+                // Проверка для мобильных устройств
+                const isMobile = window.innerWidth <= 640;
+
                 // Если нижняя граница блока формы находится в области видимости браузера
                 if (formRect.bottom <= windowHeight) {
-                    if (!isFormVisible) {
+                    if (!isFormVisible && (!isMobile || !isAnimationPlayedOnce)) {
                         animatePhoneSvg(showFormAndHidePhoneSvg); // Показываем форму после анимации phoneSvg
+                        if (isMobile) {
+                            isAnimationPlayedOnce = true; // Устанавливаем флаг, если анимация уже была проиграна на мобильных устройствах
+                        }
                     }
                 } else {
                     if (isFormVisible) {
@@ -499,7 +506,7 @@
                 phoneSvg.style.display = 'block'; // Показываем блок с телефонной иконкой
                 // Здесь можно добавить любую дополнительную анимацию для phoneSvg
 
-                // После завершения анимации вызываем колбэк (если он есть)
+                // После завершения анимации вызываем колбэ
                 const animationDuration = 2500; // Длительность анимации phoneSvg в миллисекундах
                 setTimeout(() => {
                     if (typeof callback === 'function') {
@@ -513,6 +520,7 @@
 
             // Проверяем видимость формы при загрузке страницы
             checkFormVisibility();
+
         });
     </script>
 </body>
