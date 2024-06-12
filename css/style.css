@@ -738,6 +738,13 @@ section.portfolio {
   position: relative;
   margin-bottom: 20px;
 }
+.courses__header.slide-in {
+  -webkit-animation: slideIn 1s ease-in-out;
+          animation: slideIn 1s ease-in-out;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  opacity: 0;
+}
 .courses__quote {
   max-width: 220px;
   color: var(--light-primary);
@@ -755,6 +762,13 @@ section.portfolio {
   display: flex;
   align-items: center;
   gap: 20px;
+}
+.courses__title.slide-in {
+  -webkit-animation: slideIn 1.5s ease-in-out;
+          animation: slideIn 1.5s ease-in-out;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  opacity: 0;
 }
 .courses__img {
   width: 250px;
@@ -774,6 +788,13 @@ section.portfolio {
   display: flex;
   flex-wrap: wrap;
   margin-top: 80px;
+}
+.courses__list.slide-in {
+  -webkit-animation: slideIn 2s ease-in-out;
+          animation: slideIn 2s ease-in-out;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  opacity: 0;
 }
 .courses__item {
   width: 100%;
@@ -840,6 +861,27 @@ section.portfolio {
   margin-left: -25px;
 }
 
+@-webkit-keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
 .progressBar {
   width: 100%;
   height: 10px;
