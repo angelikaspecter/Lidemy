@@ -30,10 +30,10 @@
                 </svg>
             </button>
             <ul class="nav__list">
-                <li class="nav__item"><a href="#homepage" class="nav__link">Homepage</a></li>
-                <li class="nav__item"><a href="#whatwedo" class="nav__link">What We Do</a></li>
-                <li class="nav__item"><a href="#whatwedid" class="nav__link">What We Did</a></li>
-                <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+                <li class="nav__item"><a href="#homepage" class="nav__link link">Homepage</a></li>
+                <li class="nav__item"><a href="#whatwedo" class="nav__link link">What We Do</a></li>
+                <li class="nav__item"><a href="#whatwedid" class="nav__link link">What We Did</a></li>
+                <li class="nav__item"><a href="#contact" class="nav__link link">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -44,8 +44,8 @@
                     <p class="pre-title">Lidemy Group</p>
                     <h1 class="title">Marketing <br> Courses</h1>
                     <div class="btn__group">
-                        <a href="#whatwedid" class="btn--outline">See the Last courses</a>
-                        <a href="#contact" class="btn--fill">Contact Me</a>
+                        <a href="#whatwedid" class="btn--outline link">See the Last courses</a>
+                        <a href="#contact" class="btn--fill link">Contact Me</a>
                     </div>
                     <img class="btn--down" loading="lazy" src="img/scroll.webp" width="50" height="50"
                         alt="scroll down">
@@ -308,7 +308,7 @@
                 circle.style.top = y;
             });
 
-            document.querySelectorAll('.nav__link').forEach(link => {
+            document.querySelectorAll('.link').forEach(link => {
                 link.addEventListener('click', function (event) {
                     event.preventDefault();
                     const targetId = this.getAttribute('href').substring(1);
