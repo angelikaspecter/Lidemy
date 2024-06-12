@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    <div id="circle"></div>
     <header class="header" id="homepage">
         <nav class="nav">
             <button class="btn" id="btnOpen">
@@ -297,29 +298,12 @@
             </ul>
         </section>
     </footer>
-    <div id="circle"></div>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            const btnOpen = document.getElementById("btnOpen");
-            const btnClose = document.getElementById("btnClose");
-            const nav = document.querySelector(".nav");
-
-            btnOpen.addEventListener("click", function () {
-                nav.style.clipPath = "circle(3000px at 50px 50px)";
-                btnOpen.style.display = "none";
-                btnClose.style.display = "block";
-            });
-
-            btnClose.addEventListener("click", function () {
-                nav.style.clipPath = "circle(30px at 50px 50px)";
-                btnOpen.style.display = "block";
-                btnClose.style.display = "none";
-            });
-
             var circle = document.getElementById('circle');
             document.addEventListener("mousemove", function (event) {
-                var x = event.clientX - circle.offsetWidth / 30 + "px";
-                var y = event.clientY - circle.offsetHeight / 30 + "px";
+                var x = event.pageX - circle.offsetWidth / 30 + "px";
+                var y = event.pageY - circle.offsetHeight / 30 + "px";
                 circle.style.left = x;
                 circle.style.top = y;
             });
@@ -344,6 +328,23 @@
                 if (history.state) {
                     history.replaceState(null, null, ' ');
                 }
+            });
+
+
+            const btnOpen = document.getElementById("btnOpen");
+            const btnClose = document.getElementById("btnClose");
+            const nav = document.querySelector(".nav");
+
+            btnOpen.addEventListener("click", function () {
+                nav.style.clipPath = "circle(3000px at 50px 50px)";
+                btnOpen.style.display = "none";
+                btnClose.style.display = "block";
+            });
+
+            btnClose.addEventListener("click", function () {
+                nav.style.clipPath = "circle(30px at 50px 50px)";
+                btnOpen.style.display = "block";
+                btnClose.style.display = "none";
             });
 
             var portfolioProgress = document.querySelector('.portfolio__progress');

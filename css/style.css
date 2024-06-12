@@ -157,10 +157,11 @@ html {
   position: absolute;
   width: 30px;
   height: 30px;
-  border: 1px solid white;
+  border: 1px solid var(--light-primary);
   border-radius: 50%;
   background-color: transparent;
   pointer-events: none;
+  z-index: 999999;
   transition: left 0.2s ease, top 0.2s ease;
 }
 
